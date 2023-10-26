@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实时评论系统</title>
+    <link rel="stylesheet" href="End-User Comments System.css">
+</head>
+
+<body>
+    <div class="content-above-line">
+        <h2>User comment System</h2>
+    </div>
+    
+    <div class="divider">
+        <hr>
+    </div>
+
+    <div class="maincontent">
+        <h3>You can comment on any of your ideas here!</h3>
+        <!--用户输入框-->
+        <textarea id="enterSection" placeholder="What do you think of this Web application? Please leave your comments here, all suggestions will be appreciated, Thank you!"></textarea>
+
+        <!--提交按钮-->
+        <button id="postComment"><strong>Click Me to Post Comment!</strong></button>
+        
+        <!--查看评论按钮-->
+        <button id="toggleButton"><strong>Click Me to access and view previous comments!</strong></button>
+
+        <div id="previousComment" style="display: none;">
+            <h2>Previous Comments</h2>
+            <ul id="commentsList"></ul>
+        </div>
+    </div>
+    
+    <script src="End-User Comments System.js" type="module"></script>
+</body>
+</html>
