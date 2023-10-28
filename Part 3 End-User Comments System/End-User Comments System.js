@@ -4,7 +4,7 @@ import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebas
 
 // 初始化Firebase应用
 const appSetting = {
-    databaseURL: "https://comments-section-16278-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    databaseURL: "https://web504-assessment-2-e5b0b-default-rtdb.asia-southeast1.firebasedatabase.app/"
 };
 
 const app = initializeApp(appSetting);
