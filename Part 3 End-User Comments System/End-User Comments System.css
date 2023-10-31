@@ -17,8 +17,8 @@ body, html {
 }
 
 #enterSection {
-    width: 600px;
-    height: 120px;
+    width: 80%;
+    height: 80px;
     resize: none;
 }
 
@@ -49,7 +49,7 @@ body, html {
 button {
     display: block;
     margin: auto;
-    width: 50%;
+    width: 75%;
     margin-top: 10px;
     padding: 10px 80px;
     color: #f5f5f5;

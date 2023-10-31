@@ -1,6 +1,6 @@
 // 导入Firebase库
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"
 
 // 初始化Firebase应用
 const appSetting = {
@@ -11,7 +11,7 @@ const app = initializeApp(appSetting);
 const database = getDatabase(app);
 
 // 获取页面元素
-const commentText = document.getElementById("commentText");
+const commentText = document.getElementById("enterSection");
 const postCommentBtn = document.getElementById("postComment");
 const commentsList = document.getElementById("commentsList");
 const toggleButton = document.getElementById("toggleButton")

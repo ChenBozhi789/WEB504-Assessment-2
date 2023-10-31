@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实时评论系统</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="content-above-line">
+        <h2>User comment System</h2>
+    </div>
+    
+    <div class="divider">
+        <hr>
+    </div>
+
+    <div class="login-register">
+        <!--用户注册按钮-->
+        <div id="registerSection">
+            <h2 id="registertext">Register</h2>
+            <input type="email" id="registerEmail" placeholder="Email">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <button id="registerButton">Register</button>
+        </div>
+
+        <!--用户登录按钮-->
+        <div id="loginSection">
+            <h2 id="logintext">Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginButton">Login</button>
+        </div>
+    </div>
+
+    <div class="user-comments">
+        <h3>You can comment on any of your ideas here!</h3>
+        <!--用户输入框-->
+        <textarea id="enterSection" placeholder="What do you think of this Web application? Please leave your comments here, all suggestions will be appreciated, Thank you!"></textarea>
+
+        <!--提交按钮-->
+        <button id="postComment"><strong>Click Me to Post Comment!</strong></button>
+        
+        <!--查看评论按钮-->
+        <button id="toggleButton"><strong>Click Me to access and view previous comments!</strong></button>
+
+        <!--编辑评论按钮-->
+        <button id="editButton"><strong>Click Me to edit your comments!</strong></button>
+
+
+        <div id="previousComment" style="display: none;">
+            <h2>Previous Comments</h2>
+            <ul id="commentsList"></ul>
+        </div>
+    </div>
+    
+    <script src="index.js" type="module"></script>
+</body>
+</html>
