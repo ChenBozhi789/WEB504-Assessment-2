@@ -1,8 +1,8 @@
-// 导入Firebase库
+// Import the firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"
 
-// 初始化Firebase应用
+// Initialize Firebase application
 const appSetting = {
     databaseURL: "https://web504-assessment-2-e5b0b-default-rtdb.asia-southeast1.firebasedatabase.app/"
 };
@@ -10,7 +10,7 @@ const appSetting = {
 const app = initializeApp(appSetting);
 const database = getDatabase(app);
 
-// 获取页面元素
+// get page elements
 const commentText = document.getElementById("enterSection");
 const postCommentBtn = document.getElementById("postComment");
 const commentsList = document.getElementById("commentsList");
@@ -22,8 +22,8 @@ postCommentBtn.addEventListener('click', function() {
         const commentsRef = ref(database, 'comments');
         push(commentsRef, { text: commentValue, timestamp: Date.now() })
             .then(() => {
-                commentText.value = '';  // 清空输入框
-                alert("恭喜，您的评论已成功提交！")
+                commentText.value = '';  // Clear commentText
+                alert("Congratulations, your review has been successfully submitted!")
             })
             .catch(error => {
                 console.error("Error posting comment: ", error);
@@ -31,11 +31,11 @@ postCommentBtn.addEventListener('click', function() {
     }
 });
 
-// 实时监听评论数据的变化
+// Monitor changes in comment data in real time
 const commentsRef = ref(database, 'comments');
 onValue(commentsRef, snapshot => {
     const comments = snapshot.val();
-    commentsList.innerHTML = '';  // 清空列表
+    commentsList.innerHTML = '';  // Clear list
 
     for (let key in comments) {
         const li = document.createElement('li');
@@ -44,7 +44,7 @@ onValue(commentsRef, snapshot => {
     }
 });
 
-// 展开/隐藏按钮
+// Expand/hide button
 toggleButton.addEventListener("click", function() {
     const commentSection = document.getElementById("previousComment");
     if (commentSection.style.display === "none" || commentSection.style.display === "") {

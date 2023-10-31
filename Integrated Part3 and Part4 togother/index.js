@@ -24,7 +24,7 @@ const commentText = document.getElementById("enterSection");
 const postCommentBtn = document.getElementById("postComment");
 const commentsList = document.getElementById("commentsList");
 const toggleButton = document.getElementById("toggleButton")
-const  editButtonButton = document.getElementById("editButton");
+const editButton = document.getElementById("editButton");
 
 function registerUser() {
     const email = document.getElementById("registerEmail").value;

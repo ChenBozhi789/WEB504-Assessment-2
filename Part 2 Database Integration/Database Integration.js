@@ -4,7 +4,7 @@ import { getDatabase, ref, push, onValue, set, update, remove } from "https://ww
 
 // Define your Firebase app's configuration
 const appSetting = {
-    databaseURL: "https://web504-as2-45ff3-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    databaseURL: "https://web504-assessment-2-e5b0b-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
 // Initialize the Firebase app
@@ -54,11 +54,11 @@ readButton.addEventListener("click", function() {
 })
 
 updateButton.addEventListener("click", function() {
-    const userEntryUpdateDate = prompt("请输入您希望从Firebase更新的数据");
+    const userEntryUpdateDate = prompt("Please enter the data you want to update from Firebase");
     onValue(inputInDB, (snapshot) => {
         const updateData = snapshot.val();
         if (!updateData) {
-            alert("没有找到任何数据");
+            alert("No data found");
             return;
         }
 
@@ -74,27 +74,27 @@ updateButton.addEventListener("click", function() {
         }
 
         if (dataExists) {
-            const newData = prompt("输入想要更新的新数据");
+            const newData = prompt("Enter the new data you want to update");
             if (newData) { 
                 const specificUpdateRef = ref(database, `inputList/${keyToData}`);
                 set(specificUpdateRef, { input: newData })
                     .then(() => {
-                        alert("数据更新成功！");
+                        alert("Data update success!");
                     })
                     .catch((error) => {
-                        alert(`更新数据时出错: ${error.message}`);
+                        alert(`Error updating data:${error.message}`);
                     });
             } else {
-                alert("您已取消本次操作或未输入更新后数据，请重试");
+                alert("You have cancelled this operation or did not enter updated data, please try again");
             }
         } else {
-            alert("未找到匹配的数据，请重新输入！");
+            alert("No matching data found, please re-enter!");
         }
     });
 });
 
 deleteButton.addEventListener("click", function() {
-    const deleteData = prompt("请输入您想要从Firebase删除的数据");
+    const deleteData = prompt("Please enter the data you want to delete from Firebase");
 
     if (!deleteData) {
         return;
@@ -115,19 +115,19 @@ deleteButton.addEventListener("click", function() {
         }
 
         if (dataExists) {
-            const confirmDeletion = confirm("您确定要删除这条数据吗？");
+            const confirmDeletion = confirm("Are you sure you want to delete this data?");
             if (confirmDeletion) {
                 const specificDataRef = ref(database, `inputList/${keyToData}`);
                 remove(specificDataRef)
                 .then(() => {
-                    alert('数据删除成功！');
+                    alert('Data deletion succeeded!');
                 })
                 .catch((error) => {
-                    alert(`删除数据失败: ${error.message}`);
+                    alert(`Failed to delete data: ${error.message}`);
                 });
             }
         } else {
-            alert("您要删除的数据在数据库中未找到。");
+            alert("The data you want to delete was not found in the database.");
         }
     });
 });
@@ -137,5 +137,5 @@ function clearInputField() {
 }
 
 function appendInputToInputList(inputvalue) {
-    inputList.innerHTML += `<li class="data-item">${inputvalue}</li>`;
+    inputInDB.innerHTML += `<li class="data-item">${inputvalue}</li>`;
 }
