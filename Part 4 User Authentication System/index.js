@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
-// 获取页面元素
+// Get page element 
 const commentText = document.getElementById("enterSection");
 const postCommentBtn = document.getElementById("postComment");
 const commentsList = document.getElementById("commentsList");
@@ -54,7 +54,7 @@ function loginUser() {
       });
 }
 
-// 点击提交评论按钮
+// Click post comment button
 postCommentBtn.addEventListener('click', function() {
     const user = auth.currentUser;
     if (user) {
@@ -68,15 +68,15 @@ postCommentBtn.addEventListener('click', function() {
                 timestamp: Date.now() 
             })
             .then(() => {
-                commentText.value = '';  // 清空输入框
-                alert("恭喜，您的评论已成功提交！");
+                commentText.value = '';  // Clear commentText
+                alert("Congratulations, your comment has been submitted successfully!");
             })
             .catch(error => {
                 console.error("Error posting comment: ", error);
             });
         }
     } else {
-        alert("请先登录再评论！");
+        alert("Please log in first before commenting!");
     }
 });
 
@@ -90,21 +90,20 @@ toggleButton.addEventListener("click", function() {
     }
 });
 
-
-// 编辑评论按钮
+// edit comment button
 editButton.addEventListener("click", function() {
-    const userEntryUpdateDate = prompt("请输入您要编辑的评论内容！");
-    onValue(commentsRef, (snapshot) => {   // 使用之前定义的commentsRef
+    const userEntryUpdateDate = prompt("Please enter the content of the comment you want to edit!");
+    onValue(commentsRef, (snapshot) => {   // Using the previously defined commentsRef
         const editData = snapshot.val();
         if (!editData) {
-            alert("没有找到任何数据");
+            alert("No data found");
             return;
         }
 
         let dataExists = false;
         let keyToData = null;
 
-        for (let key in editData) {   // 使用editData替代updateData
+        for (let key in editData) {   // Using editData instead of updateData
             if (editData[key].text === userEntryUpdateDate) {
                 dataExists = true;
                 keyToData = key;
@@ -113,7 +112,7 @@ editButton.addEventListener("click", function() {
         }
 
         if (dataExists) {
-            const newData = prompt("请输入新的评论内容");
+            const newData = prompt("Please enter the new comment content");
             if (newData) { 
                 const specificUpdateRef = ref(database, `comments/${keyToData}`);
                 set(specificUpdateRef, { 
@@ -123,25 +122,26 @@ editButton.addEventListener("click", function() {
                     timestamp: Date.now() 
                 })
                 .then(() => {
-                    alert("评论更新成功！");
+                    alert("Comment updated successfully!");
                 })
                 .catch((error) => {
-                    alert(`更新评论时出错: ${error.message}`);
+                    alert(`Error updating comment: ${error.message}`);
                 });
             } else {
-                alert("您已取消本次操作或未输入编辑后的评论，请重试");
+                alert("You have canceled the operation or did not enter the edited comment, please try again");
             }
         } else {
-            alert("未找到匹配的评论，请重新输入！");
+            alert("Matching comment not found, please re-enter!");
         }
     });
 });
 
-// 实时监听评论数据的变化
+
+// Monitor changes in comment data in real time
 const commentsRef = ref(database, 'comments');
 onValue(commentsRef, snapshot => {
     const comments = snapshot.val();
-    commentsList.innerHTML = '';  // 清空列表
+    commentsList.innerHTML = '';  // Clear List
 
     for (let key in comments) {
         const li = document.createElement('li');
