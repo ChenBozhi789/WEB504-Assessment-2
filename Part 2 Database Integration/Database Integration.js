@@ -16,17 +16,6 @@ const database = getDatabase(app);
 // Define an "inputList" path that refers to the database
 const inputInDB = ref(database, "inputList");
 
-/*
-onValue(inputInDB, function(snapshot) {
-    let inputArray = Object.values(snapshot.val());
-    clearInputList();
-    for(let i = 0; i < inputArray.length; i++) {
-        let currentInput = inputArray[i];
-        console.log(currentInput);
-        appendInputToInputList(currentInput.input);
-    }
-})
-*/
 // Get page elements
 const inputfield = document.getElementById("input-field");
 const inputList = document.getElementById("inputlist");
