@@ -2,31 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="Database Integration.css">
-  <title>Part 2 Database Integration</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Database Integration.css">
+    <title>Part 2 Database Integration</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="dateenterbox">
-    <img src="https://th.bing.com/th?id=OIP.tvhGzPg7Vwpkcioyvqoo4wHaGP&w=272&h=229&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"> 
-    <input type="text" id="input-field" placeholder="Input content">
-    
-    <button id="add-button">Upload To Realtime Database</button>
-    <button id="read-button">Read Data from Firebase</button>
-    <button id="update-button">Update Data from Firebase</button>
-    <button id="delete-button">Delete Data from Firebase</button>
-    </div>
+    <!-- Container -->
+    <div class="container">
 
-    <div id="datadisplay" class="datadisplaybox">
-      <p id="displaytitle">Update stored data here</p>
-    </div>
+        <!-- Date Entry Box -->
+        <div class="dateenterbox">
+            <img src="https://th.bing.com/th?id=OIP.tvhGzPg7Vwpkcioyvqoo4wHaGP&w=272&h=229&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Description of Image">
+            
+            <input type="text" id="input-field" placeholder="Input content">
 
-    <div class="comments-section">
-      
-    </div>
+            <button id="add-button">Upload To Realtime Database</button>
+            <button id="read-button">Read Data from Firebase</button>
+            <button id="update-button">Update Data from Firebase</button>
+            <button id="delete-button">Delete Data from Firebase</button>
+        </div>
 
+        <!-- Data Display Box -->
+        <div id="datadisplay" class="datadisplaybox">
+            <p id="displaytitle">Update stored data here</p>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <!-- Comments will be displayed here -->
+        </div>
+
+    </div>
+    <!-- End of Container -->
+
+    <!-- JavaScript -->
     <script src="Database Integration.js" type="module"></script>
 </body>
 
