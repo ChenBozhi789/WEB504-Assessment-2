@@ -19,29 +19,29 @@ html, body {
 }
 .container {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中 */
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 
 .dateenterbox {
     margin: auto;
     margin-right: 20px;
-    width: 600px;        /* 宽度 */
-    height: 600px;       /* 高度 */
-    padding: 5px;      /* 内边距 */
+    width: 600px;
+    height: 600px;
+    padding: 5px;
     max-width: 350px;
-    border: 5px solid black; /* 黑色边框 */
+    border: 5px solid black;
 }
 
 .datadisplaybox {
     margin: auto;
     margin-left: 20px;
-    width: 600px;        /* 宽度 */
-    height: 600px;       /* 高度 */
-    padding: 5px;      /* 内边距 */
+    width: 600px;
+    height: 600px;
+    padding: 5px;
     max-width: 350px;
-    border: 5px solid black; /* 黑色边框 */
+    border: 5px solid black;
 
 }
 
